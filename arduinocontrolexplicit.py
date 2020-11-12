@@ -6,10 +6,10 @@ while True:
     if c == 'states':
         for i in range (0,14):
             if(i<10):
-                print(i,'-',ai.state[i],end='|| ')
+                print(i,'-',ai.state[i],end=' || ')
             else:
                 tmp=chr(i+55)
-                print(tmp,':',i, '-', ai.state[i], end='|| ')
+                print(tmp,':',i, '-', ai.state[i], end=' || ')
         print()
 
     elif len(c) == 2 and (c[0] == 'u' or c[0] == 'd' or c[0] == 's') and (c[1] == '0' or c[1] == '1'

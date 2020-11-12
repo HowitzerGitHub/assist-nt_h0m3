@@ -1,7 +1,9 @@
-pysoundfile==0.9.0
-enum34==1.1.6
+pysoundfile
+enum34
 playsound
 pyaudio
 PyQt5
+kivy
+pyserial
 
 **working out of the box for windows

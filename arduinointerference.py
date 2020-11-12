@@ -1,15 +1,22 @@
-import serial
+import serial.tools.list_ports
 import time
 
 state=[0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-ard = serial.Serial('COM5',9600,timeout=5)
-# while True:
-#     msg=input("Enter the query ")
-#     ard.write(msg.encode('utf-8'))
-#     if(msg[0]=='s'):
-#         time.sleep(0.2)
-#         print(ard.read().decode('utf-8'))
+ports = list(serial.tools.list_ports.comports())
+chk=0
+s=None
+
+for p in ports:
+    if "Arduino" in p.description:
+        print("This is an Arduino!" ," ",p)
+        s=p.device
+        chk=1
+if not chk:
+    print("Arduino not found!!!-Connect Arduino")
+    exit()
+
+ard = serial.Serial(s,9600,timeout=5)
 
 def command(com):
     c1=com[0]

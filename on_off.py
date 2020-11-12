@@ -13,7 +13,6 @@ audio_stream = None
 awake = False
 start_time = None
 wake_time = 6500  # ms
-
 try:
     porcupine_wakeword = Porcupine(library_path='lib/windows/amd64/libpv_porcupine.dll',
                                    model_file_path='lib/common/porcupine_params.pv',
@@ -49,12 +48,13 @@ try:
         input=True,
         frames_per_buffer=porcupine_wakeword.frame_length)
     print("Assistant is UP and running,ready to take wake commands")
+
     while True:
         pcm = audio_stream.read(porcupine_wakeword.frame_length)
         pcm = struct.unpack_from("h" * porcupine_wakeword.frame_length, pcm)
 
         if not awake:
-            # print('...')
+            #print('...')
 
             result = porcupine_wakeword.process(pcm)
             if result:
@@ -63,7 +63,7 @@ try:
                 start_time = time.time()
                 print('Voice Assistant activated, give command...')
                 playsound("sounds/assistant_wake.mp3")
-                command_result = None;
+                command_result="";
         else:
             if (time.time() - start_time) * 1000 > wake_time:
                 print('Voice assistant going back to sleep')
@@ -93,7 +93,7 @@ try:
                     u = 'u2'
                     d = 'd2'
 
-                    if ai.state[2] == 1:
+                    if ai.state[2]==1:
                         ai.command(d)
                         print('Turning off AC Room')
                         playsound("sounds/turning_off_ac_room.mp3")
@@ -101,7 +101,7 @@ try:
                         playsound("sounds/device_down.mp3")
                         command_result = ""
 
-                    elif ai.state[2] == 0:
+                    elif ai.state[2]==0:
                         ai.command(u)
                         print('Turning on AC Room')
                         playsound("sounds/turning_on_ac_room.mp3")
@@ -312,32 +312,36 @@ try:
                 elif command_result == 11:
 
                     d = 'dC'
+
+                    ai.command(d)
+                    print('Closing the door')
                     playsound("sounds/locking_the_door.mp3")
                     time.sleep(1)
                     playsound("sounds/device_down.mp3")
-                    ai.command(d)
-                    print('Closing the door')
-                    command_result = None
+                    command_result = ""
 
                 elif command_result == 12:
 
                     u = 'uD'
+
+                    ai.command(u)
+                    print('Main power is now ON')
                     playsound("sounds/supplying_the_main_power.mp3")
                     time.sleep(1)
                     playsound("sounds/device_down.mp3")
-                    ai.command(u)
-                    print('Main power is now ON')
-                    command_result = None
+                    command_result = ""
 
                 elif command_result == 13:
 
                     d = 'dD'
+
+                    ai.command(d)
+                    print('Main power is now SHUT')
                     playsound("sounds/cutting_the_main_power.mp3")
                     time.sleep(1)
                     playsound("sounds/device_down.mp3")
-                    ai.command(d)
-                    print('Main power is now SHUT')
-                    command_result = None
+                    command_result = ""
+
 
                 awake = False
 
