@@ -1,10 +1,7 @@
 ![Description](resources/images/description.png)
 
-# Porcupine &nbsp; [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=On-device%20wake%20word%20detection%20engine%20powered%20by%20deep%20learning&url=https://github.com/Picovoice/Porcupine&hashtags=deeplearning,voice,AI,privacy)
 
-[![Build Status](https://travis-ci.org/Picovoice/Porcupine.svg?branch=master)](https://travis-ci.org/Picovoice/Porcupine)
-[![GitHub release](https://img.shields.io/github/release/Picovoice/Porcupine.svg)](https://github.com/Picovoice/Porcupine/releases)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/Picovoice/Porcupine/blob/master/LICENSE)
+
 
 Porcupine is a self-service, highly-accurate, and lightweight **wake word** detection engine. It enables developers to
 build always-listening voice-enabled applications/platforms. Porcupine is
@@ -350,36 +347,3 @@ let manager = PorcupineManager(
 When initialized, input audio can be monitored using `manager.start()`. When done be sure to stop the manager using 
 `manager.stop()`.
 
-## Contributing
-
-If you like to contribute to Porcupine, please read through [CONTRIBUTING.md](CONTRIBUTING.md).
-
-### Acknowledgements
-
-* Thank you @dyah10 for adding watchOS binding and demo application.
-
-## Tools used
-
-[MXNet](https://github.com/apache/incubator-mxnet) is used for training DNNs.
-
-## Releases
-
-### v1.2.0 April 21, 2018
-
-* Runtime optimization across platforms.
-* Added support for watchOS.
-
-### v1.1.0 - April 11, 2018
-
-Added multiple wake-word detection capability. Porcupine can now detect multiple wake words with virtually no added
-CPU/memory footprint.
-
-### v1.0.0 - March 13, 2018
-
-Initial release.
-
-## License
-
-Anything you find in this repository is licensed under Apache 2.0. This allows running the library on all supported platforms. Furthermore, 
-custom wake-words can be generated for Linux, Mac, and Windows. Custom wake-words for other platforms are provided with 
-the purchase of commercial license. In order to purchase a commercial license contact contact@picovoice.ai.
