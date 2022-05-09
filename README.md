@@ -49,7 +49,7 @@ The demo application allows you to test Porcupine on a variety of wake words in 
 ## Performance
 
 A scientific comparison between accuracy of Porcupine and two other widely-used libraries, PocketSphinx and Snowboy, is provided 
-[here](https://github.com/Picovoice/wakeword-benchmark). Below is miss rate measurements for different engines given a fixed
+[here](https://github.com/Picovoice/wake-word-benchmark/blob/master/doc/img/cpu.png). Below is miss rate measurements for different engines given a fixed
 false alarm rate in noisy conditions. It can be seen that Porcupine achieves much lower miss rate for any given false alarm rate.
 
 ![Accuracy](https://raw.githubusercontent.com/Picovoice/wakeword-benchmark/master/doc/img/benchmark_noisy_bar.png?raw=true )
